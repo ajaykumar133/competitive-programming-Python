@@ -1,0 +1,50 @@
+'''You are given an array prices where prices[i] is the price of a given stock on the ith day.
+
+You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+
+Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+Input: prices = [7,1,5,3,6,4]
+Output: 5
+Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.'''
+
+no_of_days = int(input("enter the number of days you want to monitor stocks:"))
+rate_of_stocks = []
+
+for i in range(1,no_of_days+1):
+    price = int(input('enter the price of stock on day '+str(i)+':'))
+    rate_of_stocks.append(price)
+
+temp_value = 0
+mini = rate_of_stocks[0]  # It defines the minimum value on which we buy stock
+profit = 0
+time_to_buy =0
+time_to_sell = 0
+
+for i in range(0,no_of_days):
+    current_rate = rate_of_stocks[i]
+    
+    if(current_rate<mini):
+    
+        if(mini-current_rate >= profit):
+            temp_value = mini
+            mini = current_rate
+            profit = mini-temp_value
+            time_to_buy = i+1
+                
+        else:
+            continue
+
+    elif(current_rate>=mini):
+        if(current_rate-mini >= profit):
+            profit = current_rate-mini
+            best_sell = current_rate
+            time_to_sell = i+1
+        
+        
+
+print("\n\nBest time to buy stock at Day "+str(time_to_buy)+" with price :"+str(mini))
+
+print("Best time to sell stock at Day "+str(time_to_sell)+" on price :"+str(best_sell))
+
+print("The max profit you can earn is:"+str(profit))
