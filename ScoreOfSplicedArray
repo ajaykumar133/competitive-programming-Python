@@ -1,0 +1,47 @@
+'''You are given two 0-indexed integer arrays nums1 and nums2, both of length n.
+
+You can choose two integers left and right where 0 <= left <= right < n and swap the subarray nums1[left...right] with the subarray nums2[left...right].
+For example, if nums1 = [1,2,3,4,5] and nums2 = [11,12,13,14,15] and you choose left = 1 and right = 2, nums1 becomes [1,12,13,4,5] and nums2 becomes [11,2,3,14,15].
+You may choose to apply the mentioned operation once or not do anything.
+The score of the arrays is the maximum of sum(nums1) and sum(nums2), where sum(arr) is the sum of all the elements in the array arr.
+Return the maximum possible score.
+
+Input: nums1 = [60,60,60], nums2 = [10,90,10]
+Output: 210
+Explanation: Choosing left = 1 and right = 1, we have nums1 = [60,90,60] and nums2 = [10,60,10].
+The score is max(sum(nums1), sum(nums2)) = max(210, 80) = 210.
+'''
+
+num1 = []
+num2 = []
+
+length = int(input("Enter the size of both arrays:"))
+
+print("============Input in num1 ===========")
+for i in range(0,length):
+    value = int(input("Enter the integer :"))
+    num1.append(value)
+print(num1)
+
+print("============Input in num2 ===========")
+for i in range(0,length):
+    value = int(input("Enter the integer :"))
+    num2.append(value)
+print(num2)
+
+left = int(input("Enter the left index:"))
+right = int(input("Enter the right index:"))
+
+for i in range(left,right+1):
+    val1 = num1[i]
+    val2 = num2[i]
+    
+    num1[i] = val2
+    num2[i] = val1
+
+print("============ Updated ============")
+print(f"Choosing left = {left}, right = {right}, we have \nnum1 = {num1}\nnum2 = {num2}")
+
+output = max(sum(num1), sum(num2))
+print(f"output = {output}")
+    
