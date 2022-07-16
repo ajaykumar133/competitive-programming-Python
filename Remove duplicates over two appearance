@@ -19,7 +19,7 @@ for i in range((size-1),2,-1):
     j = i-1
     k = i-2
     if(nums[i]==nums[j] and nums[i]==nums[k]):
-        print("deleting repeating item :"+str(nums[i]))
+        print("Deleting repeating item :"+str(nums[i]))
         
         nums.pop(k)
         nums.append("_")
