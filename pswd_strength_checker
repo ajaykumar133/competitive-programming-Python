@@ -1,0 +1,31 @@
+'''A password is said to be valid or strong if it satisfies all the following criteria:
+It has at least 8 characters.
+It contains at least one lowercase letter.
+It contains at least one uppercase letter.
+It contains at least one digit.
+It contains at least one special character. The special characters are the characters in the following string: "!@$%^&*()-+".'''
+
+pswd = input('Please enter your password :')
+
+upr, lwr, dgt, splch = 0,0,0,0
+size = len(pswd)
+
+if(size>=8):
+
+    for i in pswd:
+        if(i.islower()):
+            lwr +=1
+        if(i.isupper()):
+            upr +=1
+        if(i.isdigit()):
+            dgt +=1
+        if(i == '!' or i== '@' or i== '$' or i == '%' or i=='&' or i =='*' or i=='^'):
+            splch +=1
+
+    if(lwr>=1 and upr>=1 and dgt>=1 and splch>=1):
+        print("Valid password")
+    else:
+        print("Invalid password")
+
+else:
+        print("Invalid password")
