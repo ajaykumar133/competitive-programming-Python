@@ -1,0 +1,18 @@
+'''Reverse a sentence entered by user
+solution: reverse the whole string given by user and itr. char by char and concatenate the words , seperated by space " "
+------------------------------------------------------------------------------------------------------------'''
+
+sentence = input('Enter the sentence :')
+print("Input :"+sentence)
+
+word = ""
+sntc = sentence[::-1]+" "
+
+print('Output :',end='')
+
+for i in sntc:
+    if(i!=' '):
+        word = i+word
+    if(i==' '):
+        print(word,end=' ')
+        word = ""
