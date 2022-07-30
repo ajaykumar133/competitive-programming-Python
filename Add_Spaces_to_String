@@ -1,0 +1,29 @@
+'''2109. Adding Spaces to a String
+You are given a 0-indexed string s and a 0-indexed integer array spaces that describes the indices in the original string where spaces will be added. Each space should be inserted before the character at the given index.
+
+For example, given s = "EnjoyYourCoffee" and spaces = [5, 9], we place spaces before 'Y' and 'C', which are at indices 5 and 9 respectively. Thus, we obtain "Enjoy Your Coffee".
+Return the modified string after the spaces have been added.
+Input: s = "LeetcodeHelpsMeLearn", spaces = [8,13,15]
+Output: "Leetcode Helps Me Learn"
+-------------------------------------------------------------------------------------------------------------------'''
+
+#--------------- fill-up all input values from user
+word = input("Please enter the word :")
+size = int(input("Please enter number of spaces you want to add in above word :"))
+
+space = []
+
+for i in range(0,size):
+    val = int(input('Please enter the index'+str(i+1)+' for space to added :'))
+    space.append(val)
+print(space)
+
+#---------------- adding spaces to word on given index , using python method or use list to add spaces.
+output = word
+
+for i in range(0,size):
+    index = space[i]   # fetch the index value
+    index = index+i    # As the previous index is now added word , so we need to update index to take pointer to excate position.
+    output = output[:index]+' '+output[index:]
+
+print(output)
