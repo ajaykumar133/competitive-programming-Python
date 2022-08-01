@@ -1,0 +1,43 @@
+'''2357. Make Array Zero by Subtracting Equal Amounts
+You are given a non-negative integer array nums. In one operation, you must:
+
+Choose a positive integer x such that x is less than or equal to the smallest non-zero element in nums.
+Subtract x from every positive element in nums.
+Return the minimum number of operations to make every element in nums equal to 0.
+Input: nums = [1,5,0,3,5]
+Output: 3
+Explanation:
+In the first operation, choose x = 1. Now, nums = [0,4,0,2,4].
+In the second operation, choose x = 2. Now, nums = [0,2,0,0,2].
+In the third operation, choose x = 2. Now, nums = [0,0,0,0,0].
+--------------------------------------------------------------------------------------------------------------
+solution: The no. of operation will be equal to no. of unique element/numbers in list
+--------------------------------------------------------------------------------------------------------------'''
+
+size = int(input('Please enter the size of list :'))
+nums = []
+
+for i in range(0,size):
+    element = int(input('Please enter the number to List :'))
+    nums.append(element)
+
+print(nums)
+nums = sorted(nums)
+
+counter = 0
+
+for i in range(0,size):
+    
+    if(i < (size-1)):
+        current_num = nums[i]
+        next_num = nums[(i+1)]
+        if(current_num != next_num):
+            counter += 1
+        
+    if(i==(size-1)):
+        current_num = nums[i]
+        previous_num = nums[i-1]
+        if(current_num != previous_num):
+            counter += 1
+
+print(f"The minimum number of operations to make every element in nums equal to 0 will be : {counter}")
