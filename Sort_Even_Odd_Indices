@@ -1,0 +1,51 @@
+'''2164. Sort Even and Odd Indices Independently
+You are given a 0-indexed integer array nums. Rearrange the values of nums according to the following rules:
+
+Sort the values at odd indices of nums in non-increasing order.
+For example, if nums = [4,1,2,3] before this step, it becomes [4,3,2,1] after. The values at odd indices 1 and 3 are sorted in non-increasing order.
+Sort the values at even indices of nums in non-decreasing order.
+For example, if nums = [4,1,2,3] before this step, it becomes [2,1,4,3] after. The values at even indices 0 and 2 are sorted in non-decreasing order.
+Return the array formed after rearranging the values of nums.
+Input: nums = [4,1,2,3]
+Output: [2,3,4,1]
+----------------------------------Divide & Conquer------------------------------------------------------------'''
+
+nums =[]
+
+num_odd = []
+num_even = []
+
+#----- get input number of elements and then store elements in array
+size = int(input("Enter the number of integers you want to add in array :"))
+
+for i in range(0,size):
+    money = int(input("Enter the money in house no. "+str(i+1)+" :"))
+    nums.append(money)
+
+#---- divide the problem as odd array and even array and store elements to them.
+for i in range(0,size):
+    if(i%2 == 0):        
+        num_odd.append(nums[i])
+    else:
+        num_even.append(nums[i])
+
+#----- once elements are allocated in odd and even array , sorting them as we need.
+num_odd.sort(reverse=True)
+num_even.sort()
+
+print(num_odd)
+print(num_even)
+
+#----- storing the expected sorted values to the parent array from odd-even arrays  
+odd_index=0
+even_index = 0
+
+for i in range(0,size):
+    if(i%2 == 0):        
+        nums[i] = num_odd[odd_index]
+        odd_index += 1
+    else:
+        nums[i] = num_even[even_index]
+        even_index += 1
+
+print(f"The expected sorted array :\n{nums}")
