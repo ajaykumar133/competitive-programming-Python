@@ -1,0 +1,23 @@
+'''2351. First Letter to Appear Twice
+Given a string s consisting of lowercase English letters, return the first letter to appear twice.
+Input: s = "abccbaacz"
+Output: "c"
+---------------------------------------------------------------------------------------------------
+solution: choose element, check if it is present in list , then that is 1st repeating char else add it to list
+---------------------------------------------------------------------------------------------------'''
+
+
+class solution:
+
+    def repeatedCharater(s):
+        lst = []
+        for i in s:
+            if i in lst:
+                return i
+                break
+            else:
+                lst.append(i)
+
+    s = input("Please enter the string :")
+    output = repeatedCharater(s)
+    print(f"First repeating character is :{output}")
