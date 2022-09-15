@@ -1,0 +1,23 @@
+''''Return 1st appearing unique char in a string given by user.'''
+
+class UniqueChar:
+
+    def firstUniqueChar(str):
+        lst = []
+        for i in str:
+            if i in lst:
+                lst.remove(i)
+            else:
+                lst.append(i)
+        size = len(lst)
+        if (size == 0):
+            msg = 'There is no unique character in entered string.'
+        else:
+            msg = 'First unique character in string is '+lst[0]
+        
+        return msg
+
+    inp = input('Enter the String :')
+    output = firstUniqueChar(inp)
+    print(output)
+    
